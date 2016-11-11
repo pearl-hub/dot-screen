@@ -1,8 +1,12 @@
 
 post_install() {
-    apply "source $PEARL_PKGDIR/screenrc" $HOME/.screenrc
+    link screen "$PEARL_PKGDIR/screenrc"
+}
+
+post_update() {
+    post_install
 }
 
 pre_remove() {
-    unapply "source $PEARL_PKGDIR/screenrc" $HOME/.screenrc
+    unlink screen "$PEARL_PKGDIR/screenrc"
 }
